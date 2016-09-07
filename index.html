@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html ng-app="UploadFrenzy">
+  <head>
+    <meta charset="utf-8">
+    <title>Upload Promotions for Awards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Fileinput library css file -->
+    <link href="bower_components/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" type="text/css" />
+    <!-- Fileinput library css file -->
+    <link href="https://cdn.jsdelivr.net/sweetalert2/4.2.5/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <!-- Main css file -->
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body style="background-color:#00BAB9;padding-top:5%;padding-bottom:5%">
+
+    <div class="container" style="background-color:white;padding-right:5%;padding-left:5%;padding-bottom:5%;padding-top:2%">
+      <div class="row">
+        <!-- Cross Promotion Title -->
+        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">
+          <h1><strong>CROSS PROMOTION ACUMULACIÓN DE PUNTOS</strong></h1>
+          <hr style="border: 0; height: 12px; box-shadow: inset 0 12px 12px -12px #00BAB9;">
+        </div>
+      </div>
+      <!-- Customer -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <label class="totalHeightLabel">
+                <span>Customer:</span>
+            </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+            <label style="width:100%">
+              <select class="form-control" name="cliente" ng-model="crosspromAP.customer">
+                  <option value=""></option>
+                  <option>ALTUNA</option>
+                  <option>ASHLEY-FURNITURE</option>on>
+                  <option>Don-Carnitas</option>
+                  <option>Dressy-Store</option>
+                  <option>EURODEL
+                  <option>Accion-Humana</option>
+                  <option>Astoria</option>
+                  <option>BLANCO</option>
+                  <option>BloomLounge</option>
+                  <option>Carmen</option>
+                  <option>Chili's</option>
+                  <option>Cortinas-Exclusivas</option>
+                  <option>DEL-TINGO-AL-TANGO</option>
+                  <option>Domino's</optiI</option>
+                  <option>El-Cevichin</option>
+                  <option>El-Convento</option>
+                  <option>GLOSS-SALON-Y-SPA</option>
+                  <option>Katok-San-Cristobal</option>
+                  <option>L'OCCITANE</option>
+                  <option>La-Crepe</option>
+                  <option>Lo-De-Bernal</option>
+                  <option>Look-&amp;-Beauty-Cosmetics</option>
+                  <option>Look-&amp;-Beauty-Handmade</option>
+                  <option>MARGHERITA</option>
+                  <option>MNG</option>
+                  <option>Mr-Sushi</option>
+                  <option>OpenClass</option>
+                  <option>PATATA-FRITES</option>
+                  <option>Parfois</option>
+                  <option>Piel-De-Toro</option>
+                  <option>Pretty-Woman</option>
+                  <option>RBG-Bar&amp;Grill</option>
+                  <option>Radisson</option>
+                  <option>TIFFANY-HAIR-FASHION</option>
+                  <option>True-Guatemala</option>
+                  <option>gef</option>
+              </select>
+            </label>
+        </div>
+      </div>
+      <br>
+      <!-- Max Points -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <label class="totalHeightLabel">
+                <span>Máximo de Puntos:</span>
+            </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <div class="inner-addon right-addon">
+              <i class="glyphicon glyphicon-sort-by-order"></i>
+              <input type="number" min="1" class="form-control" placeholder="Cantidad de Puntos" ng-model="crosspromAP.maxPoints">
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- Create Awards -->
+      <div class="panel-group" ng-controller="basicsCtrl">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3>Ingreso de Premios</h3>
+          </div>
+          <!-- Awards Form -->
+          <div class="panel-body">
+            <div class="formStyle">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <form role="form" data-toggle="validator" id="productForm">
+                    <!-- Award Name. Title and Input Text -->
+                    <div class="form-group">
+                      <label for="inputName" class="control-label">Nombre del Premio:</label>
+                      <div class="inner-addon right-addon">
+                          <i class="glyphicon glyphicon-text-size"></i>
+                          <input type="text" class="form-control" id="awardName" placeholder="Nombre del Premio" required>
+                      </div>
+                    </div>
+                    <!-- Award Description -->
+                    <div class="form-group">
+                      <label for="inputName" class="control-label">Descripción del Premio:</label>
+                      <div class="inner-addon right-addon">
+                          <i class="glyphicon glyphicon-text-size"></i>
+                          <input type="text" class="form-control" id="descriptionAward" placeholder="Descripción del Premio" required>
+                      </div>
+                    </div>
+                    <!-- Points Exchange for Awards -->
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label for="inputName" class="control-label">Puntos Necesarios para ser Canjeado:</label>
+                        <div class="inner-addon right-addon">
+                            <i class="glyphicon glyphicon-sort-by-order"></i>
+                            <input type="number" min="1" class="form-control" id="awardPoints" placeholder="Cantidad de Puntos">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Award Image -->
+                    <div class="form-group">
+                      <label for="inputName" class="control-label">Imagen del Premio:</label>
+                      <div class="form-group">
+                          <input id="awardPhoto" type="file" class="file" accept="image/*">
+                      </div>
+                      <hr>
+                    </div>
+                    <!-- Awards Settings -->
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-lg" id="saveAwardButton" style="display:;">Agregar Premio a la Lista</button>
+                      <button type="submit" class="btn btn-success btn-lg" id="editAwardButton" style="display:none;">Editar Premio de la Lista</button>
+                      <button type="reset" class="btn btn-default btn-lg" ng-click=resetAwardForm();>Restaurar Formulario</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- Show Awards -->
+              <div class="row">
+                <div class="col-xs-12 .col-sm-12 col-md-12">
+                  <div class="table-responsive">
+                    <table st-table="awardJson" class="table table-hover table-bordered">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Nombre</th>
+                          <th>Descripcion</th>
+                          <th>Puntos para Canjear</th>
+                          <th>Imagen</th>
+                          <th>Eliminar</th>
+                          <th>Editar</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="row in awardJson">
+                          <td>{{$index + 1}}</td>
+                          <td>{{row.awardName}}</td>
+                          <td>{{row.descriptionAward}}</td>
+                          <td>{{row.awardPoints}}</td>
+                          <td>
+                            <img src="{{row.awardPhoto.src}}" class="tableImage"/>
+                          </td>
+                          <td>
+                            <button type="button" ng-click="removeAwardItem(row)" class="btn btn-sm btn-danger">
+                              <i class="glyphicon glyphicon-remove-circle">
+                              </i>
+                            </button>
+                          </td>
+                          <td>
+                            <button type="button" ng-click="editAwardItem(row)" class="btn btn-sm btn-success">
+                              <i class="glyphicon glyphicon-edit">
+                              </i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Promotion Description -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <label class="totalHeightLabel">
+                <span>Descripción de Promoción:</span>
+            </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <div class="inner-addon right-addon">
+            <textarea class="form-control noResize" placeholder="Descripción de Promoción" name="d-promotion" ng-model="crosspromAP.promotionDescription" maxlength="200" rows="4"></textarea>
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- Policy Exchange -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <label class="totalHeightLabel">
+                <span>Política de canjeo:</span>
+            </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <div class="inner-addon right-addon">
+            <textarea style="resize: vertical;" class="form-control" placeholder="Política de Canjeo" name="d-promotion" ng-model="crosspromAP.promotionDescription"></textarea>
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- Cant. Verify Codes -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <label class="totalHeightLabel">
+                <span>Cantidad de Códigos de Verificación:</span>
+            </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <div class="inner-addon right-addon">
+              <i class="glyphicon glyphicon-sort-by-order"></i>
+              <input type="number" min="1" class="form-control" placeholder="Cantidad de Puntos" name="v-code" ng-model="crosspromAP.codeVerification">
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- Terms And Conditions -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <label class="totalHeightLabel">
+                <span>Términos y Condiciones:</span>
+            </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <div class="inner-addon right-addon">
+            <textarea style="resize: vertical;" class="form-control" placeholder="Términos y Condiciones de la Promoción" name="d-promotion" ng-model="crosspromAP.termsAndConditions"></textarea>
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- Publication Date -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <label class="totalHeightLabel">
+                <span>Fecha de Publicación:</span>
+            </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <div class="inner-addon right-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+              <input class="form-control" type="date" placeholder="DD/MM/YYYY" name="f-publicacion" ng-model="crosspromAP.publicationDate">
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- Hour of Publication -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <label class="totalHeightLabel">
+                <span>Hora de Publicación:</span>
+            </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <div class="inner-addon right-addon">
+              <i class="glyphicon glyphicon-sound-7-1"></i>
+              <input class="form-control" type="time" dataformat="hh:mm:ss" placeholder="HH:MM-AM/PM" name="h-publicacion" ng-model="crosspromAP.publicationTime">
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- End Date -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <label class="totalHeightLabel">
+                <span>Fecha Límite:</span>
+            </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <div class="inner-addon right-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+              <input class="form-control" type="date" placeholder="DD/MM/YYYY" name="f-f-cupon" ng-model="crosspromAP.endDate">
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- Hour of End Promotion -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <label class="totalHeightLabel">
+                <span>Finalización:</span>
+            </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <div class="inner-addon right-addon">
+              <i class="glyphicon glyphicon-sound-7-1"></i>
+              <input class="form-control" type="time" dataformat="hh:mm" placeholder="HH:MM AM/PM" name="h-publicacion" ng-model="crosspromAP.endTime">
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- Code Coupons -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <label class="totalHeightLabel">
+            <span>Código de Cupones:</span>
+          </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <div class="inner-addon right-addon">
+            <i class="glyphicon glyphicon-sort-by-order"></i>
+            <input type="number" min="1" class="form-control" placeholder="Códigos de Cupones" name="c-code" ng-model="crosspromAP.couponCodes">
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- Status -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <label class="totalHeightLabel">
+                <span>Status:</span>
+            </label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+            <label style="width:100%">
+              <select class="form-control" name="s-promocion" ng-model="crosspromAP.status">
+                  <option value=""></option>
+                  <option value="true">Habilitar Cupón</option>
+                  <option value="false">Deshabilitar Cupón</option>
+              </select>
+            </label>
+        </div>
+      </div>
+      <br>
+      <br>
+      <!-- Save Button -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">
+            <button class="btn btn-danger" style="padding:2%" type="submit" ng-click="SavecrosspromAP(pointsAcumulated)">Guardar Promoción</button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- Jquery Library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- canvas-to-blob.min.js is only needed if you wish to resize images before upload. This must be loaded before fileinput.min.js -->
+    <script src="bower_components/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
+
+    <!-- purify.min.js is only needed if you wish to purify HTML content in your preview for HTML files. This must be loaded before fileinput.min.js -->
+    <script src="bower_components/bootstrap-fileinput/js/plugins/purify.min.js" type="text/javascript"></script>
+
+    <!-- the main fileinput plugin file -->
+    <script src="bower_components/bootstrap-fileinput/js/fileinput.min.js"></script>
+
+    <!-- Angular Hosted Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+    <!-- Smart Table Angular Library -->
+    <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
+
+    <!-- Sweetalert2 library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/4.2.5/sweetalert2.min.js"></script>
+
+    <!-- My script js -->
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
