@@ -1,3 +1,18 @@
+/* Media Query of Close Image*/
+@media (max-width: 600px) {
+
+ .img-close{
+     width: 100px;
+     height: 100px;
+     margin-right: 60px;
+ }
+}
+
+/* Body Font Frenzy */
+body{
+ font-family: Bariol;
+}
+
 /* enable absolute positioning */
 .inner-addon {
     position: relative;

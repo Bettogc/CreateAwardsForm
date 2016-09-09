@@ -1,3 +1,22 @@
+/****FIREBASE***/
+var app = {
+  apiKey: "AIzaSyCCkqPKuZh8QtKM_tU2nFDAcjjzufcVX6c",
+  authDomain: "frenzyapplication.firebaseapp.com",
+  databaseURL: "https://frenzyapplication.firebaseio.com",
+  storageBucket: "frenzyapplication.appspot.com",
+};
+
+
+
+var dashboard = {
+  apiKey: "AIzaSyDIbQh6IA6D9HHhfogQUZP63omtjwzAiBA",
+    authDomain: "frenzydashboard.firebaseapp.com",
+    databaseURL: "https://frenzydashboard.firebaseio.com",
+    storageBucket: "frenzydashboard.appspot.com",
+};
+var FrenzyApp =  firebase.initializeApp(app);
+var FrenzyDashboard = firebase.initializeApp(dashboard, "Secondary");
+
 // Configuration of file input
 $("#awardPhoto").fileinput({
   'uploadUrl': "/file-upload-batch/2",
@@ -12,8 +31,144 @@ $("#awardPhoto").fileinput({
 });
 
 var UploadFrenzy = angular.module('UploadFrenzy',[]);
+var CustomerList = [];
+var count = 0;
+// UploadFrenzy.controller('CustomerCtrl',function($scope) {
+//
+//
+//
+//   // secondaryApp.database().ref('Customer').once('value', function(snapshot) {
+//   //      for (x in snapshot.val()) {
+//   //        CustomerList[count] = snapshot.val()[x]
+//   //        CustomerList[count]["ID"] = x;
+//   //        count++
+//   //      }
+//   //        count = 0
+//   //       // console.log(CustomerList);
+//   // }).then(function() {
+//   //   $scope.CustomerList = CustomerList;
+//   //   console.log($scope.CustomerList);
+//   // })
+//
+// })
+/////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////
+var IDpromocion = "KSADHAS788893"
+var  ListCodigos = ["APAKNPOEF56Q"];
+//AcumulacionPuntos("-KNieHFLFtM-CWKetTz7",ListCodigos)
+function AcumulacionPuntos(Idcustomers,ListCodigos,crosspromAP,awardJson,newPostKey) {
+  var DicAcumulacionPuntos = {};
+  DicAcumulacionPuntos[newPostKey] = {
+    CodigoVerificacion:ListCodigos,
+    DescripcionPromocion:awardJson[0].descriptionAward,
+    FechaPublicacion:crosspromAP.publicationDate,
+    FechaVencimiento:crosspromAP.endDate,
+    PoliticasCanjeo:crosspromAP.exchangePolicy,
+    PuntosMaximos:crosspromAP.maxPoints,
+    Status:crosspromAP.status,
+    TerminosLegales:crosspromAP.termsAndConditions,
+  }
+  firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers).set(DicAcumulacionPuntos);
+}
 
-UploadFrenzy.controller('basicsCtrl',function($scope) {
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+function AcumulacionPuntosPremios(Idcustomers,newPostKey,awardJson) {
+  firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey).once('value', function(snapshot) {
+   console.log(snapshot.val());
+  });
+  for (a in awardJson) {
+    var premio = {};
+    premio["DescripcionPremio"]=awardJson[a].descriptionAward;
+    premio["Nombre"]=awardJson[a].awardName;
+    premio["Puntos"]=awardJson[a].awardPoints;
+    console.log(premio);
+    firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey+"/Premio").push(premio);
+  }
+  // firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey).set({
+  //   CodigoVerificacion:ListCodigos,
+  //   DescripcionPromocion:awardJson[0].descriptionAward,
+  //   FechaPublicacion:crosspromAP.publicationDate,
+  //   FechaVencimiento:crosspromAP.endDate,
+  //   PoliticasCanjeo:crosspromAP.exchangePolicy,
+  //   PuntosMaximos:crosspromAP.maxPoints,
+  //   Status:crosspromAP.status,
+  //   TerminosLegales:crosspromAP.termsAndConditions,
+  //  });
+}
+var idCodigo = "ASDAS6635"
+//codigos(Idcustomers,idCodigo,idpromocion)
+function codigos(Idcustomers,idCodigo,idpromocion) {
+  firebase.database().ref('CrossPromotion/Codigos/AcumulacionPuntos/'+Idcustomers+'/'+idpromocion+'/'+idCodigo).push({
+    FechaHoraCanjeo:"",
+    Status:true,
+    ValorCodigo:"",
+    IdUsuario:""
+   });
+
+}
+function UserPremios(idUsuario) {
+  firebase.database().ref('CrossPromotion/UserPremios/'+idUsuario+'/Premios').push({
+    CodigoCanjeoRedimido:{},
+    cupon:"",
+    FechaHoraCanjeo:"",
+    FechaVencimiento:"",
+    Status:true,
+
+   });
+}
+
+/////////////////////////////////////////////////////////////////////////////
+UploadFrenzy.controller('awardTableCtrl',function($scope) {
+  var Customers = [];
+
+  $scope.SavecrosspromAP = function(crosspromAP) {
+    var newPostKey = "HO";
+    //alert("asdas")
+    var IdCus;
+    console.log(crosspromAP);
+console.log(Customers);
+
+      for (c in Customers) {
+        //console.log(Customers[c].Customer);
+        if (crosspromAP.customer ==Customers[c].Customer) {
+          console.log("se encontro");
+          console.log(crosspromAP.customer);
+          console.log(Customers[c].Customer);
+          AcumulacionPuntos(Customers[c].ID,ListCodigos,crosspromAP,$scope.awardJson,newPostKey)
+          IdCus = Customers[c].ID;
+        }
+      }
+      AcumulacionPuntosPremios(IdCus,newPostKey,$scope.awardJson)
+
+    console.log($scope.awardJson);
+
+  }
+
+  ////
+  FrenzyDashboard.database().ref('Customer').once('value', function(customerData) {
+    var dictionary = [];
+    var counter = 0;
+    Customers = {};
+    for (var i in customerData.val()) {
+      dictionary[counter]=customerData.val()[i]["Name"];
+      Customers[counter] = {"ID":i,"Customer": customerData.val()[i]["Name"]}
+
+      counter++;
+    }
+
+    $scope.CustomerArray = dictionary;
+    $scope.CustomerArray.sort();
+  }).then(function() {
+
+    var CostumerSelect = document.getElementById("NameCustomer");
+    for (var i in $scope.CustomerArray) {
+      var option = document.createElement("option");
+      option.text = $scope.CustomerArray[i];
+      CostumerSelect.add(option);
+    }
+  })
 
   // Json to save all Awards of promotion.
   $scope.awardJson = [];
@@ -37,7 +192,7 @@ UploadFrenzy.controller('basicsCtrl',function($scope) {
   });
 
   // Detect success submit for prodcut form whitout erros.
-  $('#productForm').submit(function() {
+  $('#awardForm').submit(function() {
     if ($('#saveAwardButton').css("display") === 'inline-block') {
       // create a temporal dictionary and save awardata inside.
       var productData = {}
@@ -54,7 +209,7 @@ UploadFrenzy.controller('basicsCtrl',function($scope) {
 
       //Clear form and file input to save other award we neet reset two time
       //to can reset input file.
-      $('#productForm').trigger('reset');
+      $('#awardForm').trigger('reset');
 
       //Clear form.
       $scope.resetAwardForm();
@@ -88,7 +243,7 @@ UploadFrenzy.controller('basicsCtrl',function($scope) {
     $('#editAwardButton').css('display','none');
 
 
-    $('#productForm').trigger('reset');
+    $('#awardForm').trigger('reset');
 
     //This line its necesary to delete image from file input if i click on edit row.
     $('#awardPhoto').fileinput('refresh', {'initialPreview': '','initialPreviewConfig': ''});
@@ -100,7 +255,7 @@ UploadFrenzy.controller('basicsCtrl',function($scope) {
 
     //Clear form and file input to save other award we neet reset two time
     //to can reset input file.
-    $('#productForm').trigger('reset');
+    $('#awardForm').trigger('reset');
 
     //This line its necesary to delete image from file input if i click on edit row.
     $('#awardPhoto').fileinput('refresh', {'initialPreview': '','initialPreviewConfig': ''});

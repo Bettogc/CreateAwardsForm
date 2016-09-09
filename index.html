@@ -15,7 +15,12 @@
     <!-- Main css file -->
     <link rel="stylesheet" href="main.css">
   </head>
-  <body style="background-color:#00BAB9;padding-top:5%;padding-bottom:5%">
+  <body  style="background-color:#00BAB9 ;padding-top:1%;padding-bottom:5%" ng-controller="awardTableCtrl">
+    <div style="padding:5px 0px 5px 5px;height: 135px;">
+      <a title="exit, remove icon" class="iconlink" href="../../index.html">
+        <img class="img-responsive img-close" alt="cancel, circle, close, cross, delete, exit, remove icon" class="tiled-icon" style="max-width: 100px; max-height: 100px;margin-right: 20px;float:right;" src="img/close.png">
+      </a>
+    </div>
 
     <div class="container" style="background-color:white;padding-right:5%;padding-left:5%;padding-bottom:5%;padding-top:2%">
       <div class="row">
@@ -34,44 +39,8 @@
         </div>
         <div class="col-xs-9 col-sm-9 col-md-9">
             <label style="width:100%">
-              <select class="form-control" name="cliente" ng-model="crosspromAP.customer">
+              <select id='NameCustomer' class="form-control" name="cliente" ng-model="crosspromAP.customer">
                   <option value=""></option>
-                  <option>ALTUNA</option>
-                  <option>ASHLEY-FURNITURE</option>on>
-                  <option>Don-Carnitas</option>
-                  <option>Dressy-Store</option>
-                  <option>EURODEL
-                  <option>Accion-Humana</option>
-                  <option>Astoria</option>
-                  <option>BLANCO</option>
-                  <option>BloomLounge</option>
-                  <option>Carmen</option>
-                  <option>Chili's</option>
-                  <option>Cortinas-Exclusivas</option>
-                  <option>DEL-TINGO-AL-TANGO</option>
-                  <option>Domino's</optiI</option>
-                  <option>El-Cevichin</option>
-                  <option>El-Convento</option>
-                  <option>GLOSS-SALON-Y-SPA</option>
-                  <option>Katok-San-Cristobal</option>
-                  <option>L'OCCITANE</option>
-                  <option>La-Crepe</option>
-                  <option>Lo-De-Bernal</option>
-                  <option>Look-&amp;-Beauty-Cosmetics</option>
-                  <option>Look-&amp;-Beauty-Handmade</option>
-                  <option>MARGHERITA</option>
-                  <option>MNG</option>
-                  <option>Mr-Sushi</option>
-                  <option>OpenClass</option>
-                  <option>PATATA-FRITES</option>
-                  <option>Parfois</option>
-                  <option>Piel-De-Toro</option>
-                  <option>Pretty-Woman</option>
-                  <option>RBG-Bar&amp;Grill</option>
-                  <option>Radisson</option>
-                  <option>TIFFANY-HAIR-FASHION</option>
-                  <option>True-Guatemala</option>
-                  <option>gef</option>
               </select>
             </label>
         </div>
@@ -93,7 +62,7 @@
       </div>
       <br>
       <!-- Create Awards -->
-      <div class="panel-group" ng-controller="basicsCtrl">
+      <div class="panel-group" >
         <div class="panel panel-info">
           <div class="panel-heading">
             <h3>Ingreso de Premios</h3>
@@ -103,7 +72,7 @@
             <div class="formStyle">
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                  <form role="form" data-toggle="validator" id="productForm">
+                  <form role="form" data-toggle="validator" id="awardForm">
                     <!-- Award Name. Title and Input Text -->
                     <div class="form-group">
                       <label for="inputName" class="control-label">Nombre del Premio:</label>
@@ -217,7 +186,7 @@
         </div>
         <div class="col-xs-9 col-sm-9 col-md-9">
           <div class="inner-addon right-addon">
-            <textarea style="resize: vertical;" class="form-control" placeholder="Política de Canjeo" name="d-promotion" ng-model="crosspromAP.promotionDescription"></textarea>
+            <textarea style="resize: vertical;" class="form-control" placeholder="Política de Canjeo" name="d-promotion" ng-model="crosspromAP.exchangePolicy"></textarea>
           </div>
         </div>
       </div>
@@ -348,7 +317,7 @@
       <!-- Save Button -->
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">
-            <button class="btn btn-danger" style="padding:2%" type="submit" ng-click="SavecrosspromAP(pointsAcumulated)">Guardar Promoción</button>
+            <button class="btn btn-danger" style="padding:2%" type="submit" ng-click="SavecrosspromAP(crosspromAP)">Guardar Promoción</button>
         </div>
       </div>
 
@@ -376,7 +345,11 @@
 
 
 
-
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-database.js"></script>
 
 
     <!-- Jquery Library-->
