@@ -51,3 +51,12 @@ body{
 .noResize {
   resize: none;
 }
+
+.tableCuponValue {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.packageBoughtTitile {
+  font-size: 25px;
+}

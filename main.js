@@ -6,8 +6,6 @@ var app = {
   storageBucket: "frenzyapplication.appspot.com",
 };
 
-
-
 var dashboard = {
   apiKey: "AIzaSyDIbQh6IA6D9HHhfogQUZP63omtjwzAiBA",
     authDomain: "frenzydashboard.firebaseapp.com",
@@ -281,4 +279,36 @@ console.log(Customers);
     $scope.image.name = row.awardPhoto.name;
     $scope.image.src = row.awardPhoto.src;
   }
-});
+})
+
+UploadFrenzy.controller('couponTableCtrl',function($scope) {
+  /* Its necesary assign value 0 because the table need calculate values,
+  the values above is to ng-model assign to coupon table*/
+  $scope.quantityCoupon = {}
+  $scope.quantityCoupon['five'] = 0;
+  $scope.quantityCoupon['ten'] = 0;
+  $scope.quantityCoupon['twentyFive'] = 0;
+  $scope.quantityCoupon['fifty'] = 0;
+  $scope.quantityCoupon['oneHundred'] = 0;
+
+  /* ###### Eliminarlo al unirlo con el form completo de cross promotion */
+  $scope.crosspromAP = {}
+  $scope.crosspromAP['maxPoints'] = 10000;
+
+  // Count the total of codes used for the customer.
+  $scope.getTotalCoupon = function(){
+    var total = 0;
+    for(var i in $scope.quantityCoupon){
+        total += $scope.quantityCoupon[i];
+    }
+
+    // Verify  total of used coupons.
+    if (total <   $scope.crosspromAP.maxPoints || total >   $scope.crosspromAP.maxPoints) {
+      $('#panelCoupon').addClass('panel-danger').removeClass('panel-success');
+    } else {
+      $('#panelCoupon').addClass('panel-success').removeClass('panel-danger');
+    }
+
+    return total;
+  }
+})

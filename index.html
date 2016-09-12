@@ -18,7 +18,7 @@
   <body  style="background-color:#00BAB9 ;padding-top:1%;padding-bottom:5%" ng-controller="awardTableCtrl">
     <div style="padding:5px 0px 5px 5px;height: 135px;">
       <a title="exit, remove icon" class="iconlink" href="../../index.html">
-        <img class="img-responsive img-close" alt="cancel, circle, close, cross, delete, exit, remove icon" class="tiled-icon" style="max-width: 100px; max-height: 100px;margin-right: 20px;float:right;" src="img/close.png">
+        <img class="img-responsive img-close" alt="cancel, circle, close, cross, delete, exit, remove icon" class="tiled-icon" style="max-width: 100px; max-height: 100px;margin-right: 20px;float:right;" src="cancel-Circle.png">
       </a>
     </div>
 
@@ -314,12 +314,123 @@
       </div>
       <br>
       <br>
-      <!-- Save Button -->
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">
-            <button class="btn btn-danger" style="padding:2%" type="submit" ng-click="SavecrosspromAP(crosspromAP)">Guardar Promoción</button>
+      <div id="panelCoupon" class="panel panel-danger" ng-controller='couponTableCtrl'>
+        <div class="panel-heading">
+          <h3>Selección del Valor de los Cupones</h3>
         </div>
-      </div>
+        <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-12 .col-sm-12 col-md-12">
+                <p class="packageBoughtTitile">Cantidad de Codigos Comprados: <strong>{{crosspromAP.maxPoints | number:2}}</strong></p>
+                <div class="table-responsive">
+                  <table st-table="awardJson" class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th class="text-center">
+                          Valor del Cupon
+                        </th>
+                        <th class="text-center">
+                          Cantidad Deseada
+                        </th>
+                        <th class="text-center">
+                          Porcentaje del Total
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">5</span>
+                        </td>
+                        <td>
+                          <input type="number" min="0" step="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" ng-model="quantityCoupon.five"/>
+                        </td>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">{{(quantityCoupon.five*100)/crosspromAP.maxPoints | number:2}}%  </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">10</span>
+                        </td>
+                        <td>
+                          <input type="number" min="0" step="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" ng-model="quantityCoupon.ten"/>
+                        </td>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">{{(quantityCoupon.ten*100)/crosspromAP.maxPoints | number:2}}%</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">25</span>
+                        </td>
+                        <td>
+                          <input type="number" min="0" step="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" ng-model="quantityCoupon.twentyFive"/>
+                        </td>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">{{(quantityCoupon.twentyFive*100)/crosspromAP.maxPoints | number:2}}%</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">50</span>
+                        </td>
+                        <td>
+                          <input type="number" min="0" step="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" ng-model="quantityCoupon.fifty"/>
+                        </td>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">{{(quantityCoupon.fifty*100)/crosspromAP.maxPoints | number:2}}%</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">100</span>
+                        </td>
+                        <td>
+                          <input type="number" min="0" step="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control"ng-model="quantityCoupon.oneHundred"/>
+                        </td>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">{{(quantityCoupon.oneHundred*100)/crosspromAP.maxPoints | number:2}}%</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">Total de Cupones Utilizados</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">{{getTotalCoupon() | number:2}}</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="text-center tableCuponValue">{{(getTotalCoupon()*100)/crosspromAP.maxPoints | number:2}}%</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                    </tbody>
+                  </table>
+                  <div class="alert alert-danger" role="alert" ng-if="getTotalCoupon() < crosspromAP.maxPoints || getTotalCoupon() > crosspromAP.maxPoints">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    <strong>Error: </strong>
+                    Verifica que el total de códigos que deseas sea igual que a la cantidad de códigos que compraste.
+                  </div>
+                  <div class="alert alert-success" role="alert" ng-if="getTotalCoupon() === crosspromAP.maxPoints">
+                    <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Success:</span>
+                    <strong>Correcto:</strong>
+                    La cantidad de códigos solicitados es valida.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <!-- Save Button -->
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">
+              <button class="btn btn-danger" style="padding:2%" type="submit" ng-click="SavecrosspromAP(crosspromAP)">Guardar Promoción</button>
+          </div>
+        </div>
 
 
 
