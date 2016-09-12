@@ -12,6 +12,7 @@ var dashboard = {
     databaseURL: "https://frenzydashboard.firebaseio.com",
     storageBucket: "frenzydashboard.appspot.com",
 };
+
 var FrenzyApp =  firebase.initializeApp(app);
 var FrenzyDashboard = firebase.initializeApp(dashboard, "Secondary");
 
@@ -31,27 +32,8 @@ $("#awardPhoto").fileinput({
 var UploadFrenzy = angular.module('UploadFrenzy',[]);
 var CustomerList = [];
 var count = 0;
-// UploadFrenzy.controller('CustomerCtrl',function($scope) {
-//
-//
-//
-//   // secondaryApp.database().ref('Customer').once('value', function(snapshot) {
-//   //      for (x in snapshot.val()) {
-//   //        CustomerList[count] = snapshot.val()[x]
-//   //        CustomerList[count]["ID"] = x;
-//   //        count++
-//   //      }
-//   //        count = 0
-//   //       // console.log(CustomerList);
-//   // }).then(function() {
-//   //   $scope.CustomerList = CustomerList;
-//   //   console.log($scope.CustomerList);
-//   // })
-//
-// })
-/////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////
-var IDpromocion = "KSADHAS788893"
+
+var IDpromocion = "KSADHAS788893";
 var  ListCodigos = ["APAKNPOEF56Q"];
 //AcumulacionPuntos("-KNieHFLFtM-CWKetTz7",ListCodigos)
 function AcumulacionPuntos(Idcustomers,ListCodigos,crosspromAP,awardJson,newPostKey) {
@@ -83,19 +65,10 @@ function AcumulacionPuntosPremios(Idcustomers,newPostKey,awardJson) {
     premio["Puntos"]=awardJson[a].awardPoints;
     console.log(premio);
     firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey+"/Premio").push(premio);
-  }
-  // firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey).set({
-  //   CodigoVerificacion:ListCodigos,
-  //   DescripcionPromocion:awardJson[0].descriptionAward,
-  //   FechaPublicacion:crosspromAP.publicationDate,
-  //   FechaVencimiento:crosspromAP.endDate,
-  //   PoliticasCanjeo:crosspromAP.exchangePolicy,
-  //   PuntosMaximos:crosspromAP.maxPoints,
-  //   Status:crosspromAP.status,
-  //   TerminosLegales:crosspromAP.termsAndConditions,
-  //  });
+  };
 }
-var idCodigo = "ASDAS6635"
+
+var idCodigo = "ASDAS6635";
 //codigos(Idcustomers,idCodigo,idpromocion)
 function codigos(Idcustomers,idCodigo,idpromocion) {
   firebase.database().ref('CrossPromotion/Codigos/AcumulacionPuntos/'+Idcustomers+'/'+idpromocion+'/'+idCodigo).push({
@@ -103,9 +76,9 @@ function codigos(Idcustomers,idCodigo,idpromocion) {
     Status:true,
     ValorCodigo:"",
     IdUsuario:""
-   });
+  });
+};
 
-}
 function UserPremios(idUsuario) {
   firebase.database().ref('CrossPromotion/UserPremios/'+idUsuario+'/Premios').push({
     CodigoCanjeoRedimido:{},
@@ -115,10 +88,10 @@ function UserPremios(idUsuario) {
     Status:true,
 
    });
-}
+};
 
 /////////////////////////////////////////////////////////////////////////////
-UploadFrenzy.controller('awardTableCtrl',function($scope) {
+UploadFrenzy.controller('crossPromotionAcumCtrl',function($scope) {
   var Customers = [];
 
   $scope.SavecrosspromAP = function(crosspromAP) {
@@ -126,25 +99,22 @@ UploadFrenzy.controller('awardTableCtrl',function($scope) {
     //alert("asdas")
     var IdCus;
     console.log(crosspromAP);
-console.log(Customers);
+    console.log(Customers);
 
-      for (c in Customers) {
-        //console.log(Customers[c].Customer);
-        if (crosspromAP.customer ==Customers[c].Customer) {
-          console.log("se encontro");
-          console.log(crosspromAP.customer);
-          console.log(Customers[c].Customer);
-          AcumulacionPuntos(Customers[c].ID,ListCodigos,crosspromAP,$scope.awardJson,newPostKey)
-          IdCus = Customers[c].ID;
-        }
+    for (c in Customers) {
+      //console.log(Customers[c].Customer);
+      if (crosspromAP.customer ==Customers[c].Customer) {
+        console.log("se encontro");
+        console.log(crosspromAP.customer);
+        console.log(Customers[c].Customer);
+        AcumulacionPuntos(Customers[c].ID,ListCodigos,crosspromAP,$scope.awardJson,newPostKey)
+        IdCus = Customers[c].ID;
       }
-      AcumulacionPuntosPremios(IdCus,newPostKey,$scope.awardJson)
-
+    };
+    AcumulacionPuntosPremios(IdCus,newPostKey,$scope.awardJson)
     console.log($scope.awardJson);
+  };
 
-  }
-
-  ////
   FrenzyDashboard.database().ref('Customer').once('value', function(customerData) {
     var dictionary = [];
     var counter = 0;
@@ -154,25 +124,23 @@ console.log(Customers);
       Customers[counter] = {"ID":i,"Customer": customerData.val()[i]["Name"]}
 
       counter++;
-    }
+    };
 
     $scope.CustomerArray = dictionary;
     $scope.CustomerArray.sort();
   }).then(function() {
-
     var CostumerSelect = document.getElementById("NameCustomer");
     for (var i in $scope.CustomerArray) {
       var option = document.createElement("option");
       option.text = $scope.CustomerArray[i];
       CostumerSelect.add(option);
-    }
-  })
+    };
+  });
 
   // Json to save all Awards of promotion.
   $scope.awardJson = [];
  // This scope save the row id to can edit the information of award.
   $scope.rowIdEdit = 0;
-
 
   // Delete upload in preview image and select correct format to upload image to firebase
   $('#awardPhoto').on('fileloaded', function(event, file, previewId, index, reader) {
@@ -180,13 +148,6 @@ console.log(Customers);
     $scope.image = new Image();
     $scope.image.name = file.name;
     $scope.image.src = reader.result;
-  });
-
-  $('#awardPhoto').on('fileerror', function(event, data, msg) {
-     console.log(data.id);
-     console.log(data.index);
-     // get message
-     alert(msg);
   });
 
   // Detect success submit for prodcut form whitout erros.
@@ -229,20 +190,17 @@ console.log(Customers);
 
   //remove to the real data holder.
   $scope.removeAwardItem = function(row) {
-      var index = $scope.awardJson.indexOf(row);
-      if (index !== -1) {
-          $scope.awardJson.splice(index, 1);
-      }
+    var index = $scope.awardJson.indexOf(row);
+    if (index !== -1) {
+        $scope.awardJson.splice(index, 1);
+    }
   }
 
   //If i click on restored form i need to show again the save button and hidden the edit button.
   $scope.resetAwardForm = function() {
     $('#saveAwardButton').css('display','');
     $('#editAwardButton').css('display','none');
-
-
     $('#awardForm').trigger('reset');
-
     //This line its necesary to delete image from file input if i click on edit row.
     $('#awardPhoto').fileinput('refresh', {'initialPreview': '','initialPreviewConfig': ''});
   }
@@ -279,9 +237,8 @@ console.log(Customers);
     $scope.image.name = row.awardPhoto.name;
     $scope.image.src = row.awardPhoto.src;
   }
-})
 
-UploadFrenzy.controller('couponTableCtrl',function($scope) {
+  //######### Cupon Table #########
   /* Its necesary assign value 0 because the table need calculate values,
   the values above is to ng-model assign to coupon table*/
   $scope.quantityCoupon = {}
@@ -290,10 +247,8 @@ UploadFrenzy.controller('couponTableCtrl',function($scope) {
   $scope.quantityCoupon['twentyFive'] = 0;
   $scope.quantityCoupon['fifty'] = 0;
   $scope.quantityCoupon['oneHundred'] = 0;
-
-  /* ###### Eliminarlo al unirlo con el form completo de cross promotion */
   $scope.crosspromAP = {}
-  $scope.crosspromAP['maxPoints'] = 10000;
+  $scope.crosspromAP['maxPoints'] = 0;
 
   // Count the total of codes used for the customer.
   $scope.getTotalCoupon = function(){
@@ -310,5 +265,5 @@ UploadFrenzy.controller('couponTableCtrl',function($scope) {
     }
 
     return total;
-  }
-})
+  };
+});
