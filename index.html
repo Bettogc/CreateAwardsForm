@@ -139,7 +139,7 @@
                           <td>{{row.descriptionAward}}</td>
                           <td>{{row.awardPoints}}</td>
                           <td>
-                            <img src="{{row.awardPhoto.src}}" class="tableImage"/>
+                            <img id="AwardPhotoUpdate" src="{{row.awardPhoto.src}}" class="tableImage"/>
                           </td>
                           <td>
                             <button type="button" ng-click="removeAwardItem(row)" class="btn btn-sm btn-danger">
@@ -433,7 +433,8 @@
         </div>
     </div>
 
-    <!-- FIREBASE -->
+    <!-- Firebase DB -->
+    <script src="https://www.gstatic.com/firebasejs/3.0.4/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-auth.js"></script>
@@ -462,6 +463,8 @@
 
     <!-- Sweetalert2 library -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/4.2.5/sweetalert2.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.0.4/firebase.js"></script>
 
     <!-- My script js -->
     <script type="text/javascript" src="main.js"></script>

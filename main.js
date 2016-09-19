@@ -14,6 +14,7 @@ var dashboard = {
 };
 
 var FrenzyApp =  firebase.initializeApp(app);
+
 var FrenzyDashboard = firebase.initializeApp(dashboard, "Secondary");
 
 // Configuration of file input
@@ -29,6 +30,7 @@ $("#awardPhoto").fileinput({
   'autoReplace': true,
 });
 
+
 var UploadFrenzy = angular.module('UploadFrenzy',[]);
 var CustomerList = [];
 var count = 0;
@@ -38,34 +40,119 @@ var  ListCodigos = ["APAKNPOEF56Q"];
 //AcumulacionPuntos("-KNieHFLFtM-CWKetTz7",ListCodigos)
 function AcumulacionPuntos(Idcustomers,ListCodigos,crosspromAP,awardJson,newPostKey) {
   var DicAcumulacionPuntos = {};
-  DicAcumulacionPuntos[newPostKey] = {
-    CodigoVerificacion:ListCodigos,
-    DescripcionPromocion:awardJson[0].descriptionAward,
-    FechaPublicacion:crosspromAP.publicationDate,
-    FechaVencimiento:crosspromAP.endDate,
-    PoliticasCanjeo:crosspromAP.exchangePolicy,
-    PuntosMaximos:crosspromAP.maxPoints,
-    Status:crosspromAP.status,
-    TerminosLegales:crosspromAP.termsAndConditions,
-  }
-  firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers).set(DicAcumulacionPuntos);
+  DicAcumulacionPuntos["CodigoVerificacion"] = ListCodigos;
+  DicAcumulacionPuntos["DescripcionPromocion"] = crosspromAP.promotionDescription;
+  DicAcumulacionPuntos["FechaPublicacion"] = crosspromAP.publicationDate;
+  DicAcumulacionPuntos["FechaVencimiento"] = crosspromAP.endDate;
+  DicAcumulacionPuntos["PoliticasCanjeo"] = crosspromAP.exchangePolicy;
+  DicAcumulacionPuntos["PuntosMaximos"] = crosspromAP.maxPoints;
+  DicAcumulacionPuntos["Status"] = crosspromAP.status;
+  DicAcumulacionPuntos["TerminosLegales"] = crosspromAP.termsAndConditions;
+
+  firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey).set(DicAcumulacionPuntos);
 }
 
+function Images(image,file,awardJson,Idcustomers,newPostKey) {
 
+        var storageRef = FrenzyApp.storage().ref();
+        var uploadTask = storageRef.child('imageCrossPromotion/' + image).put(file);
+        uploadTask.on('state_changed', function(snapshot){
 
-//////////////////////////////////////////////////////////////////////////////////////
+          // if (snapshot.a != null) {
+          //   if(snapshot['a']['name'] === file.name){
+          //     var premio = {};
+          //     premio["DescripcionPremio"]=awardJson[x].descriptionAward;
+          //     premio["Nombre"]=awardJson[x].awardName;
+          //     premio["Puntos"]=awardJson[x].awardPoints;
+          //     premio["Photo"]= snapshot.a.downloadURLs[0];
+          //     firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey+"/Premio").push(premio);
+          //   }
+          // }
+
+        }, function(error) {}, function() {
+
+          var premio = {};
+
+          downloadURL = uploadTask.snapshot.downloadURL;
+
+          premio["DescripcionPremio"]=awardJson[x].descriptionAward;
+          premio["Nombre"]=awardJson[x].awardName;
+          premio["Puntos"]=awardJson[x].awardPoints;
+          premio["Photo"]= downloadURL;
+
+          firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey+"/Premio").push(premio);
+
+        })
+}
+
 function AcumulacionPuntosPremios(Idcustomers,newPostKey,awardJson) {
-  firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey).once('value', function(snapshot) {
-   console.log(snapshot.val());
-  });
-  for (a in awardJson) {
-    var premio = {};
-    premio["DescripcionPremio"]=awardJson[a].descriptionAward;
-    premio["Nombre"]=awardJson[a].awardName;
-    premio["Puntos"]=awardJson[a].awardPoints;
-    console.log(premio);
-    firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey+"/Premio").push(premio);
-  };
+
+  var file; /* Image type File of Award */
+  var image; /* Name of Image Award */
+  var downloadURL; /* URL of the Award Image from firebase Storage */
+
+  // awardJson object contain the Promotion with her award
+  for (x in awardJson) {
+
+    if(awardJson[x].awardPhoto == undefined || awardJson[x].awardPhoto == null || awardJson[x].awardPhoto == ''){
+
+        var premioSinImagen = {};
+
+        premioSinImagen["DescripcionPremio"]=awardJson[x].descriptionAward;
+        premioSinImagen["Nombre"]=awardJson[x].awardName;
+        premioSinImagen["Puntos"]=awardJson[x].awardPoints;
+        premioSinImagen["Photo"]= "";
+
+        firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey+"/Premio").push(premioSinImagen);
+
+    } else {
+
+      file = awardJson[x].awardPhoto;
+      image = awardJson[x]['awardPhoto']['name'];
+
+      var downloadURL = Images(image,file,awardJson,Idcustomers,newPostKey)
+      // var storageRef = FrenzyApp.storage().ref();
+      // var uploadTask = storageRef.child('imageCrossPromotion/' + image).put(file);
+      // uploadTask.on('state_changed', function(snapshot){}, function(error) {
+      // }, function() {
+      //   //console.clear();
+      //   downloadURL = uploadTask.snapshot.downloadURL;
+      //   // premio["DescripcionPremio"]=awardJson[x].descriptionAward;
+      //   // premio["Nombre"]=awardJson[x].awardName;
+      //   // premio["Puntos"]=awardJson[x].awardPoints;
+      //   // premio["Photo"]= downloadURL;
+      //   // firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey+"/Premio").push(premio);
+      //
+      // })
+
+    }
+  }
+
+
+
+
+  // Upload Image to Firebase and to Get Link Image
+  // function UploadImage () {
+  //
+  //   var storageRef = FrenzyApp.storage().ref();
+  //
+  //   var uploadTask = storageRef.child('imageCrossPromotion/' + image).put(file);
+  //   uploadTask.on('state_changed', function(snapshot){}, function(error) {
+  //   }, function() {
+  //     downloadURL = uploadTask.snapshot.downloadURL;
+  //     uploadDataWithImage();
+  //   })
+  // }
+
+  // firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey).once('value', function(snapshot) {
+  // });
+  // for (a in awardJson) {
+  //   var premio = {};
+  //   premio["DescripcionPremio"]=awardJson[a].descriptionAward;
+  //   premio["Nombre"]=awardJson[a].awardName;
+  //   premio["Puntos"]=awardJson[a].awardPoints;
+  //   firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers+"/"+newPostKey+"/Premio").push(premio);
+  // };
 }
 
 var idCodigo = "ASDAS6635";
@@ -92,27 +179,125 @@ function UserPremios(idUsuario) {
 
 /////////////////////////////////////////////////////////////////////////////
 UploadFrenzy.controller('crossPromotionAcumCtrl',function($scope) {
+
+  // Global Variables for the Pictures Promotions and Awards
+  var file;
+  var image;
+
+  $('#AwardPhotoUpdate').bind("change", function(e) {
+    var fileUploadControl = $("#AwardPhotoUpdate")[0];
+    file = fileUploadControl.files[0];
+    var name = file.name; //This does *NOT* need to be a unique name
+    image = name
+ });
+
+  $scope.rand_code = function(quantity,lengthCode,Idcustomers,ListCodigos,crosspromAP,awardJson){
+    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    var codeList = [];
+    for (var i = 0; codeList.length < quantity; i++) {
+      var codeChar = ""
+      for (x=0; x < lengthCode; x++){
+        rand = Math.floor(Math.random()*chars.length);
+        codeChar += chars.substr(rand, 1);
+      }
+
+      if (!(codeChar in codeList)) {
+          codeList.push(codeChar);
+      }
+    }
+
+    var JsonFile = {};
+    JsonFile["Codes"] = codeList;
+    firebase.database().ref('CrossPromotion/AcumulacionPuntos/'+Idcustomers).once('value', function(snapshot) {
+     if (snapshot.val() == null || snapshot.val() == undefined || snapshot.val() == '') {
+      AcumulacionPuntos(Idcustomers,ListCodigos,crosspromAP,awardJson,codeList[0])
+    }else {
+      for (a in snapshot.val()) {
+       if (a == codeList[0]) {
+         $scope.rand_code(1,2,"-KNieIpSy3qcKcKao-S2")
+       }else {
+         AcumulacionPuntos(Idcustomers,ListCodigos,crosspromAP,awardJson,codeList[0])
+         return codeList[0]
+       }
+      }
+    }
+
+
+
+  }).then(function() {
+    AcumulacionPuntosPremios(Idcustomers,codeList[0],awardJson)
+  });
+
+    // var data = JSON.stringify(JsonFile) /* Your data in JSON format - see below */;
+    // var blob = new Blob([data], {type: "application/json"});
+    // var saveAs = window.saveAs;
+
+    // saveAs(blob, "my_outfile.json");
+   }
+   //var newPostKey = $scope.rand_code(1,2,"-KNieIpSy3qcKcKao-S2")
+
+   /////////////////////////////////////////////////////////////////////////////////////////////////////
+  //  var mil = 0;
+  //  var NewCustomer;
+  //  $scope.rand_codeCustomer = function(quantity,lengthCode){
+  //    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  //    var codeList = [];
+  //    for (var i = 0; codeList.length < quantity; i++) {
+  //      var codeChar = ""
+  //      for (x=0; x < lengthCode; x++){
+  //        rand = Math.floor(Math.random()*chars.length);
+  //        codeChar += chars.substr(rand, 1);
+  //      }
+  //
+  //      if (!(codeChar in codeList)) {
+  //          codeList.push(codeChar);
+  //      }
+  //    }
+  //
+  //    var JsonFile = {};
+  //    JsonFile["Codes"] = codeList;
+  //    return codeList;
+  //
+  //
+  //   }
+  //   var idCust = [];
+  //   var NewCustomerList = {}
+  //
+  // FrenzyDashboard.database().ref("Customer").once('value', function(snapshot) {
+  //
+  //      for (a in snapshot.val()) {
+  //       idCust[mil] = a
+  //       mil++;
+  //      }
+  //      var newKey =  $scope.rand_codeCustomer(mil,2)
+  //      for (i in newKey) {
+  //        NewCustomerList[newKey[i]] = snapshot.val()[idCust[i]]
+  //       //  for (a in snapshot.val()) {
+  //       //    NewCustomerList[newKey[i]] = snapshot.val()[a]
+  //       //  }
+  //      }
+  //
+  // }).then(function() {
+  //   FrenzyDashboard.database().ref('Customer/').set(NewCustomerList);
+  // });
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
   var Customers = [];
 
   $scope.SavecrosspromAP = function(crosspromAP) {
-    var newPostKey = "HO";
+
+
     //alert("asdas")
     var IdCus;
-    console.log(crosspromAP);
-    console.log(Customers);
 
     for (c in Customers) {
-      //console.log(Customers[c].Customer);
       if (crosspromAP.customer ==Customers[c].Customer) {
-        console.log("se encontro");
-        console.log(crosspromAP.customer);
-        console.log(Customers[c].Customer);
-        AcumulacionPuntos(Customers[c].ID,ListCodigos,crosspromAP,$scope.awardJson,newPostKey)
+        var newPostKey = $scope.rand_code(1,2,Customers[c].ID,ListCodigos,crosspromAP,$scope.awardJson);
+        //AcumulacionPuntos(Customers[c].ID,ListCodigos,crosspromAP,$scope.awardJson,newPostKey)
         IdCus = Customers[c].ID;
       }
     };
-    AcumulacionPuntosPremios(IdCus,newPostKey,$scope.awardJson)
-    console.log($scope.awardJson);
+  //  AcumulacionPuntosPremios(IdCus,newPostKey,$scope.awardJson)
   };
 
   FrenzyDashboard.database().ref('Customer').once('value', function(customerData) {
@@ -143,11 +328,11 @@ UploadFrenzy.controller('crossPromotionAcumCtrl',function($scope) {
   $scope.rowIdEdit = 0;
 
   // Delete upload in preview image and select correct format to upload image to firebase
-  $('#awardPhoto').on('fileloaded', function(event, file, previewId, index, reader) {
+  $('#awardPhoto').bind('fileloaded', function(event, file, previewId, index, reader) {
+
     $('.kv-file-upload').remove();
-    $scope.image = new Image();
-    $scope.image.name = file.name;
-    $scope.image.src = reader.result;
+    $scope.image = file;
+
   });
 
   // Detect success submit for prodcut form whitout erros.

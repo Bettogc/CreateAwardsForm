@@ -1,0 +1,364 @@
+{
+  "Customer" : {
+    "-KNieFG3ajuzYWBILvg-" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-95a56960-e431-4dc1-a4fb-a7dac1446f17-11703059_1879809445578530_8516981844108560351_n.jpg?alt=media&token=01cc608d-6445-4c31-bc35-7391555a8ef9",
+      "Name" : "Look-&-Beauty-Handmade",
+      "PhoneNumber" : 54553628,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "https://www.facebook.com/Look.BeautyHandmade"
+    },
+    "-KNieFH9Nql17FjjM1fp" : {
+      "AverageSaving" : "714.00",
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-2f1f408f-54f4-42f3-a4d5-c220ded5b7a5-Piel%20de%20Toro%20Logo.jpg?alt=media&token=3c3d6f47-c058-4f06-8ec1-301a874488d0",
+      "Name" : "Piel-De-Toro",
+      "PhoneNumber" : 22609716,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 5,
+      "URL" : "http://www.pieldetoro.com/guatemala-nos-espera/"
+    },
+    "-KNieFHPwZGdWRLZxGXc" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Otros",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-1e767a22-4746-40dd-a400-7f56754f1a6a-RadissonGuatemala.jpg?alt=media&token=c4796bdf-0f8d-4735-b8d3-7a87de6b4dcd",
+      "Name" : "Radisson",
+      "PhoneNumber" : 24215151,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "https://www.radisson.com/guatemala-city-hotel-gt-01010/guatemal"
+    },
+    "-KNieFPD2-IqdUOX2eEm" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Otros",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-22c8207b-cc08-45a3-af76-0e4f2437958f-LoDeBernal.jpg?alt=media&token=a4d3feea-7ba9-4da1-8fe8-42105c023c9d",
+      "Name" : "Lo-De-Bernal",
+      "PhoneNumber" : 78323242,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "http://www.lodebernal.com/"
+    },
+    "-KNieFYdgDOVCVIcfqSR" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-6502c64e-9825-4bd6-9b9d-1ea5a81fdbd3-Logo_Final_True.jpg?alt=media&token=dd9c9f80-22a3-4ec9-a599-dde95135fd09",
+      "Name" : "True-Guatemala",
+      "PhoneNumber" : 50002997,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 1,
+      "URL" : "http://www.truecharms.com/"
+    },
+    "-KNieFbDBs49o8mHIQyd" : {
+      "AverageSaving" : "75.20",
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-731d4765-86ed-49c9-81e9-cd905b83814a-tingo%20tango.jpg?alt=media&token=89c1ec10-1a03-4df6-8795-fd8bb62a460b",
+      "Name" : "DEL-TINGO-AL-TANGO",
+      "PhoneNumber" : 22101010,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 5,
+      "URL" : "https://www.facebook.com/tingoaltangogt"
+    },
+    "-KNieFnSH82N4wcWpi2N" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Otros",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-1ebe8142-29d2-437f-963a-078efc5d9300-ElConventoBoutiqueHotel.jpg?alt=media&token=d8ada60c-f8ee-40d9-8e7f-6b9fdc2f73a9",
+      "Name" : "El-Convento",
+      "PhoneNumber" : 77207272,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "http://www.elconventoantigua.com/default-en.html"
+    },
+    "-KNieGYU_DRBmPP79Fdp" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Otros",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-043bf10e-8c37-42dd-a34e-a6c07d553828-LOGO%201.jpg?alt=media&token=703235b0-c9c7-4321-9640-a3b91420e648",
+      "Name" : "EURODELI",
+      "PhoneNumber" : 23366864,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : ""
+    },
+    "-KNieGbngQHLX67D72cT" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-26a84a7d-8844-4aca-8b3c-358b2bdabcef-FB_IMG_1466611411080.jpg?alt=media&token=c1f3bdfe-d8a1-45b0-b9ca-81737d4dd1fd",
+      "Name" : "El-Cevichin",
+      "PhoneNumber" : 59743762,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "https://www.facebook.com/elcevichingt"
+    },
+    "-KNieGu5uVzjTmuoAPju" : {
+      "AverageSaving" : "29.00",
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-3a4902eb-7c6a-4419-84fe-93d852ffec9e-logo%20mr%20sushi.png?alt=media&token=db5d90cd-db6a-4d7d-8394-dbde153e10eb",
+      "Name" : "Mr-Sushi",
+      "PhoneNumber" : 25020000,
+      "QuantityCoupon" : 1,
+      "QuantityPromotion" : 0,
+      "URL" : "http://mrsushi.com.gt/"
+    },
+    "-KNieGvbYu_2PhLuu4FO" : {
+      "AverageSaving" : "730.00",
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-5dde478f-1f4a-45b5-9696-cfb5315794bb-Bloom%20Hair%20Lounge.jpg?alt=media&token=2e0b1a3b-c579-464e-8d30-6be6560e6c28",
+      "Name" : "BloomLounge",
+      "PhoneNumber" : 41777545,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 1,
+      "URL" : "https://www.facebook.com/Bloom-lounge-770088673092076"
+    },
+    "-KNieGwDKVw6lEnsMzYF" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Otros",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-fd86f290-7f04-4f9a-850a-c0ecd75f51d5-APP%20LOGO.png?alt=media&token=f7d7ed69-a7bc-4778-a237-d598fefe28a6",
+      "Name" : "ASHLEY-FURNITURE",
+      "PhoneNumber" : 24103535,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 2,
+      "URL" : "https://www.facebook.com/AshleyFurnitureHomestoreGuatemala/?fref=ts"
+    },
+    "-KNieH9ZyWueU6aUipel" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-6f2b9ba8-af80-4356-83f8-56d178920073-lookandbeauty2.png?alt=media&token=d196ceb4-8f78-4940-a3aa-7fc8072fe49a",
+      "Name" : "Look-&-Beauty-Cosmetics",
+      "PhoneNumber" : 56201968,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "https://www.facebook.com/Look-Beauty-Cosmetics-922755051089125/"
+    },
+    "-KNieHFLFtM-CWKetTz7" : {
+      "AverageSaving" : "12.20",
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-fc95ebc5-01db-47d5-ad84-761081837311-Patatafrites.png?alt=media&token=77547450-d912-4cf5-984d-0619f922e274",
+      "Name" : "PATATA-FRITES",
+      "PhoneNumber" : 78323811,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 5,
+      "URL" : "https://www.facebook.com/patatafrites"
+    },
+    "-KNieHJfcG8OLcFatlhc" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-a736ac50-e989-4006-a5f2-0473c4841e56-rbg.jpg?alt=media&token=0b3c1744-b5ac-440c-8d2e-894cc1b3bae4",
+      "Name" : "RBG-Bar&Grill",
+      "PhoneNumber" : 24215151,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "http://www.rbggrill.com/"
+    },
+    "-KNieHMd86Hxek3ftMai" : {
+      "AverageSaving" : "23.50",
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-fbbde520-31c3-40f8-b405-42723916b4d9-13241384_1196998966999349_8397610244968041670_n.jpg?alt=media&token=c6b369a0-3df5-4bcd-a497-ffe6fca2c2e7",
+      "Name" : "Domino's",
+      "PhoneNumber" : 1730,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 2,
+      "URL" : "http://www.dominos.com.gt/"
+    },
+    "-KNieHXC07iqhfELKWAB" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-d54c210e-4e4a-4299-9510-6f9cd80e8004-10991123_1074933285855798_5623932414552156501_n.png?alt=media&token=1594508d-17b8-4352-a0ed-e31cde35256c",
+      "Name" : "TIFFANY-HAIR-FASHION",
+      "PhoneNumber" : 23671726,
+      "QuantityCoupon" : 1,
+      "QuantityPromotion" : 0,
+      "URL" : "https://www.facebook.com/Tiffany-Hair-Fashion-Studio-THF-235246816491120/?fref=ts"
+    },
+    "-KNieHgbAsvT1gF4zk95" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-fdcae2c9-db41-43a1-83ac-c4ae92a8d61a-perfil%20fb.jpg?alt=media&token=bceae5d8-ab7e-4d52-81e8-38173b52f31a",
+      "Name" : "Dressy-Store",
+      "PhoneNumber" : 54405217,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : " https://www.facebook.com/DressyStoreGt"
+    },
+    "-KNieHm2haA7wiCAYdUd" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-e2f3ab6d-b94b-487f-95da-e16c438b8a1f-LaCrepeKitchen.jpg?alt=media&token=223b8546-e4b8-4cef-989e-173593f06e4d",
+      "Name" : "La-Crepe",
+      "PhoneNumber" : 23334193,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "http://www.lacrepekitchen.com/restaurante"
+    },
+    "-KNieHxS32IoEZRcL942" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-52085c6c-ffb3-4739-a50b-43f81e54173a-Logo_Margherita_converted.png?alt=media&token=320154aa-ddc1-4109-b003-d13242a653eb",
+      "Name" : "MARGHERITA",
+      "PhoneNumber" : "",
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : ""
+    },
+    "-KNieIIDjHDvQQXmYk1z" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-724149dc-c8dc-41b4-96c9-9bb6a709045f-11026244_823071877787212_506768916822436665_n.jpg?alt=media&token=bfd80866-c369-435b-a16b-b5a979e07d3f",
+      "Name" : "GLOSS-SALON-Y-SPA",
+      "PhoneNumber" : 23606956,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "https://www.facebook.com/paulamichelle.gloss/"
+    },
+    "-KNieIIJSuA912wJ14R6" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-5787e654-19e4-496f-ad9d-df94d579b6c0-katok%20-%20Copy.PNG?alt=media&token=674418d9-6de0-4e10-95b1-47ce7af3b85a",
+      "Name" : "Katok-San-Cristobal",
+      "PhoneNumber" : 24784694,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "https://www.facebook.com/KatokBohemioSC/?ref=ts&fref=ts"
+    },
+    "-KNieIpSy3qcKcKao-S2" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-d3818ae3-0aae-403b-b84d-d59c60c98bfe-imagen%202%2072%20dpi-01.jpg?alt=media&token=8b18d5e5-9e00-4a1b-9189-4459a47dc84b",
+      "Name" : "ALTUNA",
+      "PhoneNumber" : 22012323,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 2,
+      "URL" : "http://restaurantealtuna.com/"
+    },
+    "-KNieJ5E1vpYq_jEsLQq" : {
+      "AverageSaving" : "100.00",
+      "CategoryApp" : "Entretenimiento",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-4f477ee5-0930-4652-9bec-b05a430dc404-Logo-03.jpg?alt=media&token=94e34172-ea3b-4bb8-a200-4a9a4c512270",
+      "Name" : "OpenClass",
+      "PhoneNumber" : 57486538,
+      "QuantityCoupon" : 1,
+      "QuantityPromotion" : 0,
+      "URL" : "https://www.openclass.co/"
+    },
+    "-KNieJ5tu4tAOLF_p7Nt" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-35023ccc-d86e-43ec-929f-12999efb0480-LOGO.png?alt=media&token=6ad138d4-5497-4a3f-8a38-2580137c7c2c",
+      "Name" : "Astoria",
+      "PhoneNumber" : 24740536,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 1,
+      "URL" : ""
+    },
+    "-KNieJAzKBcRO2EJ2Aju" : {
+      "AverageSaving" : "19.50",
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-aafa6d05-f2d6-4227-b037-92be2848e58d-Nuestro%20Logo.jpg?alt=media&token=fd7a5a03-76ae-4b50-8fb3-26edcbf664f6",
+      "Name" : "Don-Carnitas",
+      "PhoneNumber" : 25079797,
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 2,
+      "URL" : "https://www.facebook.com/DonCarnitasChicharrones/?fref=ts"
+    },
+    "-KNieNcIGUJPlqjP2pJP" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Ftfss-bdaee8f4-36f2-4cd5-ba9b-2a7909065e81-logoMNGBjpg_converted.jpg?alt=media&token=aab66b5d-8800-4418-a749-4323a337ec0f",
+      "Name" : "MNG",
+      "PhoneNumber" : "",
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : ""
+    },
+    "-KOCP1ZuPmI1aMSEfzS0" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Otros",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2FCortinasLogo.PNG?alt=media&token=3b5dcb0b-e777-4844-a993-f33645399392",
+      "Name" : "Cortinas-Exclusivas",
+      "PhoneNumber" : "24584360",
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "http://cortinasexclusivas.com/"
+    },
+    "-KOG7CSgqC7K36n2M1HX" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2FCarmenLogo.png?alt=media&token=9ba10354-dc60-46ab-94d3-2f11316371e5",
+      "Name" : "Carmen",
+      "PhoneNumber" : "24607067",
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 0,
+      "URL" : "https://www.facebook.com/CARMENgastrobar/"
+    },
+    "-KOgF6yiJnO3voO29_Aj" : {
+      "AverageSaving" : "4038.00",
+      "CategoryApp" : "Otros",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Flogoah.png?alt=media&token=69035649-274a-47dd-a1bc-bc61ea621c99",
+      "Name" : "Accion-Humana",
+      "PhoneNumber" : "66268798",
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 2,
+      "URL" : "http://accionhumanagt.wixsite.com/accionhumanagt"
+    },
+    "-KPYxsL7d1jp1QvvRTCB" : {
+      "AverageSaving" : "73.75",
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Flogo.png?alt=media&token=4263c28f-f230-4931-a6ad-9949487d7b67",
+      "Name" : "Pretty-Woman",
+      "PhoneNumber" : "41777545",
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 4,
+      "URL" : "https://www.facebook.com/Pretty-Woman-770088673092076/"
+    },
+    "-KPZQLp6BXpOIaUT7jFG" : {
+      "AverageSaving" : "16.00",
+      "CategoryApp" : "Restaurantes",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2FLOGO%20CHILIS.png?alt=media&token=e3094a81-bd96-464b-a7c4-92e87891861d",
+      "Name" : "Chili's",
+      "PhoneNumber" : "23022525",
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 3,
+      "URL" : "http://www.chilisgt.com/"
+    },
+    "-KPysmRRrNM59bcnaT2w" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Fparfois.png?alt=media&token=77891447-9f69-4d27-a85f-974a1e85a2ff",
+      "Name" : "Parfois",
+      "PhoneNumber" : "23367372",
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 1,
+      "URL" : "https://www.facebook.com/ParfoisGuatemala"
+    },
+    "-KQ2FUfKWTGc0GLy2Msg" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2FGEF%20LOGO.png?alt=media&token=d17a4cd1-08ec-4186-9b4e-3e95fbeffa5a",
+      "Name" : "gef",
+      "PhoneNumber" : "22330909",
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 1,
+      "URL" : "https://www.facebook.com/gefguatemala/?fref=ts"
+    },
+    "-KQ2Fl_395Q8Mfa41Bk2" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2FUntitled.png?alt=media&token=531013a0-79df-4525-a12e-24993031e442",
+      "Name" : "BLANCO",
+      "PhoneNumber" : "22330909",
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 1,
+      "URL" : "https://www.facebook.com/blanco/?fref=ts"
+    },
+    "-KQ2G3qtZdzbOAPazO-k" : {
+      "AverageSaving" : 0,
+      "CategoryApp" : "Moda",
+      "Logo" : "https://firebasestorage.googleapis.com/v0/b/frenzydashboard.appspot.com/o/imageCustomer%2Floccitanelogo.jpg?alt=media&token=983b88c8-971b-442a-b88e-8e7d03b047c9",
+      "Name" : "L'OCCITANE",
+      "PhoneNumber" : "23366549",
+      "QuantityCoupon" : 0,
+      "QuantityPromotion" : 1,
+      "URL" : "https://www.facebook.com/LOccitaneGuatemala/?fref=ts"
+    }
+  }
+}
